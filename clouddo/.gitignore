@@ -1,0 +1,13 @@
+
+/.idea/
+/clouddo.iml
+/clouddo-*/clouddo-*.iml
+/clouddo-*/mvnw
+/clouddo-*/mvnw.cmd
+/clouddo-*/.mvn/
+/clouddo-base/mvnw
+/clouddo-common/target/
+/clouddo-base/target/
+/clouddo-zuul/target/
+/clouddo-server/target/
+/clouddo-admin/target/
