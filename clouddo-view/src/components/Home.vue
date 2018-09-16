@@ -40,14 +40,14 @@
         <!--导航菜单-->
         <el-menu :default-active="defaultActiveIndex" router :collapse="collapsed" @select="handleSelect">
           <template v-for="(item,index) in menus" v-if="item.menuShow">
-            <el-submenu v-if="!item.leaf" :index="index+''">
+            <el-submenu v-if="!item.leaf" :index="index+''" :key="index">
               <template slot="title"><i :class="item.iconCls"></i><span slot="title">{{item.name}}</span></template>
               <el-menu-item v-for="term in item.children" :key="term.path" :index="term.path" v-if="term.menuShow"
                             :class="$route.path==term.path?'is-active':''">
                 <i :class="term.iconCls"></i><span slot="title">{{term.name}}</span>
               </el-menu-item>
             </el-submenu>
-            <el-menu-item v-else-if="item.leaf&&item.children&&item.children.length" :index="item.children[0].path"
+            <el-menu-item v-else-if="item.leaf&&item.children&&item.children.length" :index="item.children[0].path" :key="index"
                           :class="$route.path==item.children[0].path?'is-active':''">
               <i :class="item.iconCls"></i><span slot="title">{{item.children[0].name}}</span>
             </el-menu-item>
@@ -55,7 +55,6 @@
         </el-menu>
       </aside>
 
-      <!--右侧内容区-->
       <!--右侧内容区-->
       <section class="content-container" v-loading="$store.state.loading"
                element-loading-text="拼命加载中"
