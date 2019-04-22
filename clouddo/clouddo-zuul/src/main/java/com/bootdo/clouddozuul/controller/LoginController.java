@@ -16,10 +16,12 @@ import java.util.List;
  */
 @RestController
 public class LoginController {
+
     @Autowired
     MenuService menuService;
+
     @GetMapping({"/test"})
-    List<MenuDTO> login(HttpServletRequest request)  {
+    List<MenuDTO> login(HttpServletRequest request) {
         FilterContextHandler.setToken(request.getHeader(CommonConstants.CONTEXT_TOKEN));
         return menuService.userMenus();
     }
